@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
 	char** stockFiles = argv+1;
 
 	InitializeGlobalMembers();
-	
+	GetFileManager()->insertStockFiles(stocksCount,stockFiles);
 	cout << "FeedMerger End Successfully :)" << endl;
 
 	return 0;
