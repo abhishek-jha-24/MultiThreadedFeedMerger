@@ -1,11 +1,7 @@
-/*
- * FileManager.cpp
- *
- *  Created on: 30-06-2025
- *      Author: Abhishek
- */
+
 
 #include "FileManager.h"
+#include "MarketDataContainer.h"
 
 FileManager::FileManager()
 {
@@ -53,9 +49,16 @@ int FileManager::readStockFiles()
 	return EXIT_SUCCESS;
 }
 
-void FileManager::writeToFile()
+void FileManager::writeToFile(MarketDataTick* tick)
 {
-	cout << "writing to file " << endl;
+	string dump_line = tick->fileMetaData.filename + ", " + tick->data;
+	if(fputs(dump_line.c_str(),outputFile) == EOF)
+	{
+		perror("Failed to write to File");
+		fclose(outputFile);
+		abort();
+	}
+	readFile(tick->fileMetaData);
 }
 
 int FileManager::readFile(FilesMetadata fileMetaData)
@@ -85,9 +88,9 @@ int FileManager::readFile(FilesMetadata fileMetaData)
 		sscanf(LINE, "%29[^,], %*f, %*d, %9[^,], %*3s", timestamp, exchange);
     	strcpy(data,LINE);
 
-        cout << "Line read as: " << data << endl;
-
     	fileMetaData.fileOffset = ftell(file);
+    	MarketDataTick *tick = new MarketDataTick(timestamp,exchange,data,fileMetaData);
+    	MarketDataContainer::getInstance()->pushToContainer(tick);
     }
 
     fclose(file);

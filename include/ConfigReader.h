@@ -1,9 +1,4 @@
-/*
- * ConfigReader.h
- *
- *  Created on: 30-06-2025
- *      Author: Abhishek
- */
+
 
 #ifndef CONFIGREADER_H_
 #define CONFIGREADER_H_

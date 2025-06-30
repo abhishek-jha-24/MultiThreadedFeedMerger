@@ -6,6 +6,7 @@
 #define MAX_LINE_LEN 1024
 #define EXCHANGE_LEN 15
 #define TIMESTAMP_LEN 30
+//#define TIMESTAMP_LEN 13
 
 struct FilesMetadata {
 	string filename;
