@@ -28,7 +28,7 @@ MarketDataContainer::~MarketDataContainer()
 
 void MarketDataContainer::popFromContainer()
 {
-	while(PQ.size())
+	while(PQ.size()!=0)
 	{
 		MarketDataTick *tick= PQ.top();
 		PQ.pop();

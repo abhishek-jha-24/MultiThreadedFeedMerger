@@ -16,7 +16,6 @@ int main(int argc, char** argv) {
 //	GetFileManager()->readStockFiles();
 	SpawnThreadWorkers();
 	DumpFeed();
-	DestroyGlobalMembers();
 
 	cout << "FeedMerger End Successfully :)" << endl;
 
