@@ -17,13 +17,13 @@ void MarketDataContainer::pushToContainer(MarketDataTick *tick_)
 
 MarketDataContainer::MarketDataContainer()
 {
-
+	cout << "market data container default constructor called" << endl;
 }
 
 
 MarketDataContainer::~MarketDataContainer()
 {
-
+cout << "market data container destructed!" << endl;
 }
 
 void MarketDataContainer::popFromContainer()
